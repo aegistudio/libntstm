@@ -11,6 +11,9 @@
 #include "ntstm/fdio.hpp"
 #include "ntstm/bufio.hpp"
 
+// The C++ standard headers.
+#include <stdexcept>
+
 // The C standard headers.
 #include <cstdint>
 #include <cerrno>
@@ -49,7 +52,11 @@ static void NtIoFileStreamErrnoCheck() throw (NtIoException) {
 
 		// The file is in non-blocking mode (Which is not supported).
 		case EAGAIN:
+#ifdef _WIN32
+		// Under windows, the EWOULDBLOCK may be different from EAGAIN,
+		// so there could be two statements.
 		case EWOULDBLOCK:
+#endif
 			throw NtIoException { NtIoErrorCode::eioNonBlocking };
 		break;
 

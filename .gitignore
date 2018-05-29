@@ -1,3 +1,4 @@
+# Visual Studio Generated.
 .vs
 *.sln
 *.vcxproj
@@ -6,6 +7,12 @@ Debug
 Release
 Win32
 
+# Unix Makefile Generated.
+Makefile
+*.a
+*.so
+
+# CMake Generated.
 *.dir
 CMakeFiles
 cmake_install.cmake

@@ -5,6 +5,7 @@
  * @author Haoran Luo
  * @brief Input/Output Interfaces.
  */
+#include <cstddef>
 
 /**
  * @brief Predefined error codes that would be thrown by the LibNtStm.
